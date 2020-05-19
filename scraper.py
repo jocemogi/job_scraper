@@ -7,6 +7,17 @@ jobs = [
 	}
 ]
 
+def contains_target_phrase(description, phrases):
+	for phrase in phrases:
+		if phrase in description:
+			return True
+	return False
+
+target_phrases = [
+  '1-2 relevant work experience',
+  '0-2 years experience'
+]
+
 for job in jobs:
-	if "1-2 years of relevant experience" in job["description"]:
+	if contains_target_phrase(job['description'], target_phrases):
 		print(job["title"])
